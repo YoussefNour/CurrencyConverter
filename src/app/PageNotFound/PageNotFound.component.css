@@ -1,0 +1,15 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.message {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
