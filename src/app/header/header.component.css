@@ -1,0 +1,35 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 10vh;
+  color: bisque;
+}
+
+.options {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 10%;
+  margin: 1em;
+  list-style-type: none;
+}
+
+.active {
+  color: #000;
+}
+
+.icon {
+  width: 5rem;
+}
+
+.title {
+  color: #000;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}

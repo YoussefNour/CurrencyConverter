@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CurrencyConverterComponent } from './currencyConverter/currencyConverter.component';
 import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  declarations: [		
+  declarations: [			
     AppComponent,
       CurrencyConverterComponent,
-      PageNotFoundComponent
+      PageNotFoundComponent,
+      HeaderComponent
    ],
   imports: [
     BrowserModule,
