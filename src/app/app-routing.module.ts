@@ -5,6 +5,7 @@ import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
 
 const routes: Routes = [
   { path: 'CurrencyExchnage', component: CurrencyConverterComponent },
+  // { path: 'CurrencyDetails', component: CurrencyConverterComponent },
   { path: '', redirectTo: 'CurrencyExchnage', pathMatch: 'full' }, // redirect to CurrencyExchnage
   { path: '**', component: PageNotFoundComponent },
 ];

@@ -16,13 +16,27 @@
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
-  width: 10%;
   margin: 1em;
   list-style-type: none;
 }
 
-.active {
+.options > li {
+  margin: 0 1em;
+}
+
+.options a {
+  text-decoration: none;
+  color: bisque;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: 0.3s ease-in-out;
+}
+
+.options a:hover {
   color: #000;
+}
+
+.active {
+  color: #000 !important;
 }
 
 .icon {
