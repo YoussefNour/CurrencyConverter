@@ -7,7 +7,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 10vh;
+  height: fit-content;
   color: bisque;
 }
 

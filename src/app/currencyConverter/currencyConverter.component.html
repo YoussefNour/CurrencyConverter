@@ -1,3 +1,51 @@
-<p>
-  currencyConverter works!
-</p>
+<div>
+  <div>
+    <h1>Currency Converter</h1>
+    <div class="flex-row">
+      <div class="flex-column">
+        <label for="fromCurrency">From Currency</label>
+        <select
+          name="fromCurrency"
+          id="fromCurrency"
+          [(ngModel)]="fromCurrency"
+        >
+          <option value="EUR">EUR</option>
+          <option value="USD">USD</option>
+          <option value="GBP">GBP</option>
+        </select>
+      </div>
+      <div class="flex-column">
+        <label for="toCurrency">To Currency</label>
+        <select name="toCurrency" id="toCurrency" [(ngModel)]="toCurrency">
+          <option value="EUR">EUR</option>
+          <option value="USD">USD</option>
+          <option value="GBP">GBP</option>
+        </select>
+      </div>
+    </div>
+    <div class="flex-row">
+      <div class="flex-column">
+        <label for="amount">Amount</label>
+        <input
+          type="number"
+          name="amount"
+          id="amount"
+          [(ngModel)]="amount"
+          (change)="convertCurrency()"
+        />
+      </div>
+      <div class="flex-column">
+        <label for="convertedAmount">Converted Amount</label>
+        <input
+          type="number"
+          name="convertedAmount"
+          id="convertedAmount"
+          [(ngModel)]="convertedAmount"
+        />
+      </div>
+    </div>
+    <div class="flex-row">
+      <button (click)="convertCurrency()">Convert</button>
+    </div>
+  </div>
+</div>

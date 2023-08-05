@@ -6,19 +6,18 @@ import { AppComponent } from './app.component';
 import { CurrencyConverterComponent } from './currencyConverter/currencyConverter.component';
 import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
 import { HeaderComponent } from './header/header.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [			
+  declarations: [
     AppComponent,
-      CurrencyConverterComponent,
-      PageNotFoundComponent,
-      HeaderComponent
-   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
+    CurrencyConverterComponent,
+    PageNotFoundComponent,
+    HeaderComponent,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [HttpClientModule],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
