@@ -29,7 +29,7 @@ export class CurrencyConverterComponent implements OnInit {
   checkRatesValid = () => {
     return (
       this.currencyRates &&
-      new Date(this.currencyRates.date).getTime() === new Date().getTime()
+      new Date(this.currencyRates.date).getUTCDate() === new Date().getUTCDate()
     );
   };
 
