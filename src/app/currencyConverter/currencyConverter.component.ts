@@ -11,14 +11,25 @@ export class CurrencyConverterComponent implements OnInit {
   constructor(private _currencyService: CurrencyConverterService) {}
   currencyRates: any;
   currencyList: any;
+  popularCurrencyRates: any;
   fromCurrency = 'USD';
   toCurrency = 'AED';
   amount = 0;
   convertedAmount = 0;
-
+  PopularCurrencies = [
+    'USD',
+    'EUR',
+    'JPY',
+    'GBP',
+    'INR',
+    'AUD',
+    'CAD',
+    'CHF',
+    'HKD',
+  ];
   ngOnInit() {
     this._currencyService.getCurrencyList().subscribe((data) => {
-      this.currencyList = Object.keys(data.symbols);
+      this.currencyList = Object.entries(data.symbols);
     });
   }
 
@@ -56,9 +67,15 @@ export class CurrencyConverterComponent implements OnInit {
       this.getCurrencyRateList().subscribe((data) => {
         this.currencyRates = data;
         this.getConvertedAmount();
+        this.popularCurrencyRates = this.PopularCurrencies.map((c) => {
+          return [c, this.currencyRates.rates[c]];
+        });
       });
     } else {
       this.getConvertedAmount();
+      this.popularCurrencyRates = this.PopularCurrencies.map((c) => {
+        return [c, this.currencyRates.rates[c]];
+      });
     }
   };
 }

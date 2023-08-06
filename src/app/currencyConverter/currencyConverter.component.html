@@ -9,16 +9,22 @@
           id="fromCurrency"
           [(ngModel)]="fromCurrency"
         >
-          <option *ngFor="let currency of currencyList" value="{{ currency }}">
-            {{ currency }}
+          <option
+            *ngFor="let currency of currencyList"
+            value="{{ currency[0] }}"
+          >
+            {{ currency[0] }}
           </option>
         </select>
       </div>
       <div class="flex-column">
         <label for="toCurrency">To Currency</label>
         <select name="toCurrency" id="toCurrency" [(ngModel)]="toCurrency">
-          <option *ngFor="let currency of currencyList" value="{{ currency }}">
-            {{ currency }}
+          <option
+            *ngFor="let currency of currencyList"
+            value="{{ currency[0] }}"
+          >
+            {{ currency[0] }}
           </option>
         </select>
       </div>
@@ -48,6 +54,25 @@
     </div>
     <div class="flex-row">
       <button (click)="convertCurrency()">Convert</button>
+    </div>
+  </div>
+</div>
+<div class="flex-row CurrencyConverterContainer">
+  <div *ngFor="let currency of popularCurrencyRates">
+    <div class="flex-column currencyBoard">
+      <label for="{{ currency }}">{{ currency[0] }}</label>
+      <input
+        *ngIf="currencyRates"
+        type="number"
+        name="{{ currency[0] }}"
+        id="{{ 'curr_' + currency[0] }}"
+        class="AmountInput"
+        value="{{
+          amount *
+            (currencyRates.rates[currency[0]] /
+              currencyRates.rates[fromCurrency])
+        }}"
+      />
     </div>
   </div>
 </div>
