@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrencyConverterService } from './currencyConverter.service';
-import { FixerLatestApiResponse } from '../Models/fixerApiResponse';
 
 @Component({
   selector: 'app-currencyConverter',
@@ -11,7 +10,6 @@ export class CurrencyConverterComponent implements OnInit {
   constructor(private _currencyService: CurrencyConverterService) {}
   currencyRates: any;
   currencyList: any;
-  popularCurrencyRates: any;
   fromCurrency = 'USD';
   toCurrency = 'AED';
   amount = 0;
@@ -67,15 +65,9 @@ export class CurrencyConverterComponent implements OnInit {
       this.getCurrencyRateList().subscribe((data) => {
         this.currencyRates = data;
         this.getConvertedAmount();
-        this.popularCurrencyRates = this.PopularCurrencies.map((c) => {
-          return [c, this.currencyRates.rates[c]];
-        });
       });
     } else {
       this.getConvertedAmount();
-      this.popularCurrencyRates = this.PopularCurrencies.map((c) => {
-        return [c, this.currencyRates.rates[c]];
-      });
     }
   };
 }

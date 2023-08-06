@@ -4,8 +4,8 @@
   padding: 20px;
   border: 5px solid black;
   border-radius: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .CurrencyConverterContainer input,
@@ -20,6 +20,16 @@ select {
 }
 
 .currencyBoard {
+  display: flex;
+  flex-flow: row wrap;
+  flex-basis: 33.333333%;
+  padding: 1em;
+  margin: auto;
+  width: 100%;
+  justify-content: center;
+}
+
+.currencyCard {
   background-color: #676e5d;
   margin: 20px;
   border: 5px solid black;
@@ -27,4 +37,5 @@ select {
   justify-content: center;
   padding: 2em;
   flex-wrap: wrap;
+  min-width: 25em;
 }

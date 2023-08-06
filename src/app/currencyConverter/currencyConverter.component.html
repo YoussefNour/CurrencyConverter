@@ -57,20 +57,23 @@
     </div>
   </div>
 </div>
-<div class="flex-row CurrencyConverterContainer">
-  <div *ngFor="let currency of popularCurrencyRates">
-    <div class="flex-column currencyBoard">
-      <label for="{{ currency }}">{{ currency[0] }}</label>
+<div class="CurrencyConverterContainer">
+  <h1>Popular Currencies</h1>
+  <div class="currencyBoard">
+    <div
+      *ngFor="let currency of PopularCurrencies"
+      class="flex-column currencyCard"
+    >
+      <label for="{{ currency }}">{{ currency }}</label>
       <input
         *ngIf="currencyRates"
         type="number"
-        name="{{ currency[0] }}"
-        id="{{ 'curr_' + currency[0] }}"
+        name="{{ currency }}"
+        id="{{ 'curr_' + currency }}"
         class="AmountInput"
         value="{{
           amount *
-            (currencyRates.rates[currency[0]] /
-              currencyRates.rates[fromCurrency])
+            (currencyRates.rates[currency] / currencyRates.rates[fromCurrency])
         }}"
       />
     </div>
