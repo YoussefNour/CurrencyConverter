@@ -9,12 +9,18 @@ import { FixerLatestApiResponse } from '../Models/fixerApiResponse';
 })
 export class CurrencyConverterComponent implements OnInit {
   constructor(private _currencyService: CurrencyConverterService) {}
-  CurrencyRates: any;
+  currencyRates: any;
+  currencyList: any;
   fromCurrency = 'USD';
   toCurrency = 'AED';
   amount = 0;
   convertedAmount = 0;
-  ngOnInit() {}
+
+  ngOnInit() {
+    this._currencyService.getCurrencyList().subscribe((data) => {
+      this.currencyList = Object.keys(data.symbols);
+    });
+  }
 
   getCurrencyRateList = () => {
     return this._currencyService.getCurrencyRateList();
@@ -22,8 +28,8 @@ export class CurrencyConverterComponent implements OnInit {
 
   checkRatesValid = () => {
     return (
-      this.CurrencyRates &&
-      new Date(this.CurrencyRates.date).getTime() === new Date().getTime()
+      this.currencyRates &&
+      new Date(this.currencyRates.date).getTime() === new Date().getTime()
     );
   };
 
@@ -41,14 +47,14 @@ export class CurrencyConverterComponent implements OnInit {
       this.getCurrencyRatioFromBase(
         this.toCurrency,
         this.fromCurrency,
-        this.CurrencyRates.rates
+        this.currencyRates.rates
       );
   };
 
   convertCurrency = () => {
     if (!this.checkRatesValid()) {
       this.getCurrencyRateList().subscribe((data) => {
-        this.CurrencyRates = data;
+        this.currencyRates = data;
         this.getConvertedAmount();
       });
     } else {

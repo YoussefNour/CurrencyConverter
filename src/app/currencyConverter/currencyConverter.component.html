@@ -7,19 +7,25 @@
         <select
           name="fromCurrency"
           id="fromCurrency"
+          class="input"
           [(ngModel)]="fromCurrency"
         >
-          <option value="EUR">EUR</option>
-          <option value="USD">USD</option>
-          <option value="GBP">GBP</option>
+          <option *ngFor="let currency of currencyList" value="{{ currency }}">
+            {{ currency }}
+          </option>
         </select>
       </div>
       <div class="flex-column">
         <label for="toCurrency">To Currency</label>
-        <select name="toCurrency" id="toCurrency" [(ngModel)]="toCurrency">
-          <option value="EUR">EUR</option>
-          <option value="USD">USD</option>
-          <option value="GBP">GBP</option>
+        <select
+          name="toCurrency"
+          id="toCurrency"
+          class="input"
+          [(ngModel)]="toCurrency"
+        >
+          <option *ngFor="let currency of currencyList" value="{{ currency }}">
+            {{ currency }}
+          </option>
         </select>
       </div>
     </div>
@@ -30,6 +36,7 @@
           type="number"
           name="amount"
           id="amount"
+          class="input"
           [(ngModel)]="amount"
           (change)="convertCurrency()"
         />
@@ -40,6 +47,7 @@
           type="number"
           name="convertedAmount"
           id="convertedAmount"
+          class="input"
           [(ngModel)]="convertedAmount"
         />
       </div>
