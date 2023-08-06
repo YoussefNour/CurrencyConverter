@@ -52,10 +52,28 @@ body {
   gap: 2rem;
 }
 
-.input{
+input,
+select {
   width: 100%;
   padding: 0.5rem;
+  margin: 10px;
   border: 1px solid #676e5d;
   border-radius: 0.25rem;
   font-size: 1rem;
+}
+
+button {
+  padding: 0.5rem;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  background-color: #79a471;
+  color: black;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #676e5d;
+  color: white;
 }
